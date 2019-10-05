@@ -2,7 +2,10 @@ import requests
 import json
 from datetime import datetime
 from urllib.parse import urljoin
-import settings as s
+try:
+    import dev_settings as s
+except:
+    import settings as s
 
 
 def api_get(base_url, api, token=None, parameters=None):
@@ -36,7 +39,7 @@ def api_post(base_url, api, token=None, parameters=None):
     return post
 
 def station_list():
-    #returns a list of weather stations
+    #returns a list of weather stations known by IOT endpoint
     api_stations = api_get(s.endp_base, s.endp_station_list, s.api_token)
     station_li = []
     for station in api_stations:
@@ -106,7 +109,7 @@ def parse_weather(station, wx):
 
 if __name__ == "__main__":
     api_stations = station_list()
-    print(api_stations)
+    #print(api_stations)
     print(s.wx_stations)
     for station in s.wx_stations:
         if station in api_stations:

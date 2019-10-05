@@ -22,6 +22,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="dev_settings.py" />
     <Compile Include="settings.py">
       <SubType>Code</SubType>
     </Compile>
