@@ -63,11 +63,13 @@ def create_station(station):
         #Log error & email notification
 
 def get_weather(station):
+    #get current weather observation
     endpoint = 'stations/' + station + '/observations/current'
     wx = api_get(s.wx_base, endpoint)
     return wx
 
 def wx_keyvalue(wx, keypath, default=None, rounding=None):
+    #Get specific value from wx dict for a given key path
     for key in keypath:
         if isinstance(wx, dict):
             wx = wx.get(key, default)
