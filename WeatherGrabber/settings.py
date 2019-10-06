@@ -4,7 +4,7 @@ import os
 #Create list of urls to collect weather from
 wx_base = 'https://api.weather.gov'
 
-wx_stations = os.environ.get('WX_STATIONS')
+wx_stations = os.environ.get('WX_STATIONS').split(',')
 
 #Endpoint for posting weather data
 endp_base = os.environ.get('IOT_ENDP_BASE_URL')
