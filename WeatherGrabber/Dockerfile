@@ -8,4 +8,4 @@ COPY requirements.txt /app
 
 RUN pip install -r requirements.txt
 
-CMD ["python", "-u", "IotProxy.py"]
+CMD ["python", "-u", "WeatherGrabber.py"]

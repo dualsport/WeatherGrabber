@@ -1,5 +1,5 @@
 #Settings file for WeatherGrabber
-from os import environ
+import os
 
 #Create list of urls to collect weather from
 wx_base = 'https://api.weather.gov'
