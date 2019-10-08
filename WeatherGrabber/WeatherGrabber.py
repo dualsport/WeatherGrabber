@@ -111,8 +111,7 @@ def parse_weather(station, wx):
 
 if __name__ == "__main__":
     api_stations = station_list()
-    #print(api_stations)
-    print(s.wx_stations)
+    print(f'Runtime: {datetime.utcnow()}Z, endpoint: {s.endp_base}')
     for station in s.wx_stations:
         if station in api_stations:
             valid_station = True
@@ -133,6 +132,6 @@ if __name__ == "__main__":
             if not record_exists:
                 #Post station weather
                 post = api_post(s.endp_base, s.endp_data_add, s.api_token, payload)
-                print(post.status_code)
+                print(f'{station} status: {post.status_code}')
             else:
                 print(f'{station} has existing record matching timestamp.')
