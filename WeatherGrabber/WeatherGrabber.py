@@ -105,6 +105,8 @@ def parse_weather(station, wx):
     #Replace certain UOMs
     if cwx['wind_uom'] == 'm_s-1':
         cwx['wind_uom'] = 'm/sec'
+    elif cwx['wind_uom'] == 'km_h-1':
+        cwx['wind_uom'] = 'km/h'
     if cwx['dir_uom'] == 'degree_(angle)':
         cwx['dir_uom'] = 'degAngle'
     return cwx
