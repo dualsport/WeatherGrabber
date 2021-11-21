@@ -64,7 +64,7 @@ def create_station(station):
 
 def get_weather(station):
     #get current weather observation
-    endpoint = 'stations/' + station + '/observations/current'
+    endpoint = 'stations/' + station + '/observations/latest'
     wx = api_get(s.wx_base, endpoint)
     return wx
 
@@ -101,7 +101,8 @@ def parse_weather(station, wx):
     #Remove 'unit:' from UOMs
     for key in cwx:
         if 'uom' in key:
-            cwx[key] = cwx[key].replace('unit:','')
+            cwx[key] = cwx[key].replace('unit:','')     # old prefix to uom values
+            cwx[key] = cwx[key].replace('wmoUnit:','')  # new prefix to uom values after 10/5/2021
     #Replace certain UOMs
     if cwx['wind_uom'] == 'm_s-1':
         cwx['wind_uom'] = 'm/sec'
